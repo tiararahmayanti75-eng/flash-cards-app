@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flash Cards App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="app-container">
+        <!-- Progress Bar & Indikator Angka -->
+        <div class="progress-container">
+            <div class="progress-bar" id="progress-bar"></div>
+        </div>
+        <div class="card-indicator" id="card-indicator">1 of 5</div>
+
+        <!-- Kartu Utama -->
+        <div class="flash-card" id="flash-card">
+            <div class="card-inner">
+                <!-- Sisi Depan (Pertanyaan) -->
+                <div class="card-front">
+                    <p id="question-text">Pertanyaan akan muncul di sini</p>
+                    <small class="hint">Klik kartu untuk melihat jawaban</small>
+                </div>
+                <!-- Sisi Belakang (Jawaban) -->
+                <div class="card-back">
+                    <p id="answer-text">Jawaban akan muncul di sini</p>
+                    <small class="hint">Klik kartu untuk kembali ke pertanyaan</small>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tombol Navigasi -->
+        <div class="navigation-controls">
+            <button id="prev-btn" disabled>Previous</button>
+            <button id="next-btn">Next</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,150 @@
+/* --- Reset & Pengaturan Dasar --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8fafc;
+    color: #0f172a;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* --- Container Aplikasi --- */
+.app-container {
+    background-color: #ffffff;
+    max-width: 500px;
+    width: 100%;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e2e8f0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* --- Progress Bar --- */
+.progress-container {
+    width: 100%;
+    height: 6px;
+    background-color: #e2e8f0;
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 8px;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 20%; /* Akan diatur dinamis lewat JS */
+    background-color: #0f172a;
+    transition: width 0.3s ease;
+}
+
+.card-indicator {
+    font-size: 0.85rem;
+    color: #64748b;
+    font-weight: 600;
+    margin-bottom: 24px;
+}
+
+/* --- Efek 3D Flash Card --- */
+.flash-card {
+    width: 100%;
+    height: 250px;
+    perspective: 1000px; /* Memberikan efek ruang 3D */
+    cursor: pointer;
+    margin-bottom: 28px;
+}
+
+.card-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Kelas pemicu putaran dari JavaScript */
+.flash-card.flipped .card-inner {
+    transform: rotateY(180deg);
+}
+
+/* Sisi Depan & Belakang Kartu */
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* Sembunyikan sisi belakang saat berputar */
+    border-radius: 12px;
+    border: 2px solid #e2e8f0;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.card-front {
+    background-color: #ffffff;
+    color: #0f172a;
+}
+
+.card-back {
+    background-color: #f8fafc;
+    color: #0f172a;
+    transform: rotateY(180deg); /* Balikkan posisi awal sisi belakang */
+    border-color: #0f172a;
+}
+
+/* Teks di dalam kartu */
+.card-front p, .card-back p {
+    font-size: 1.2rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 16px;
+}
+
+.hint {
+    font-size: 0.75rem;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* --- Tombol Navigasi --- */
+.navigation-controls {
+    display: flex;
+    width: 100%;
+    gap: 16px;
+}
+
+.navigation-controls button {
+    flex: 1;
+    background-color: #0f172a;
+    color: #ffffff;
+    border: none;
+    padding: 12px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.navigation-controls button:hover:not(:disabled) {
+    background-color: #1e293b;
+}
+
+.navigation-controls button:disabled {
+    background-color: #e2e8f0;
+    color: #94a3b8;
+    cursor: not-allowed;
+}
